@@ -1,29 +1,31 @@
 
-  
   <!DOCTYPE html>
 <html lang="en">
   
 
 <head>
     <meta charset="UTF-8">
-    <title>Galerija-Fenix</title>
+    <title>lightbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script src="scripts/jquery.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="styles/default.css" rel="stylesheet">
-    <link href="styles/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="icon" href="favicon.png">
 
 
 
     <style>
-      
-        .topnav {
+body {
+  background-color:#e6e6e6;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.topnav {
 background-color: #333;
 overflow: hidden;
+
 }
+
 .topnav a {
 float: left;
 display: block;
@@ -34,12 +36,12 @@ text-decoration: none;
 font-size: 17px;
 }
 .topnav a:hover {
-background-color: #ddd;
+background-color: #a6a6a6;
 color: black;
 }
 .topnav a.active {
-background-color: #4CAF50;
-color: white;
+background-color: #ddd;  
+color: black;
 }
 .topnav .icon {
 display: none;
@@ -63,32 +65,170 @@ float: none;
 display: block;
 text-align: left;
 }
+.topnav.responsive {float: none;}
+  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 }
-body {
-  background-color: #ddd;
-}
-img {
-  margin-bottom: 10px;
-        }
 
+
+img {
+  margin-bottom: -4px;
+        }      
 .w3-border-brown {
   padding: 10px;
-        }
+}        
+
+/*LIGHTBOX*/
+.row > .column {
+  padding: 8px 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color:#2d2d2d;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #2d2d2d;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 700px;
+  max-height: 500px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: #2d2d2d;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/*ENDLIGHTBOX*/
         
     </style>
 
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a class="active" style="background-color: black"><img src="https://github.com/greeenCloud/fenix/blob/main/logo.png?raw=true"></a>
-        <a href="https://greeencloud.github.io/fenix/" class="active" style="background-color: #004d00;">Početna</a>
-        <a href="https://greeencloud.github.io/fenix/oNama.html">O nama</a>
-        <a href="https://greeencloud.github.io/fenix/usluge.html">Usluge</a>
-        <a href="https://greeencloud.github.io/fenix/kontakt.html">Kontakt</a>
-        <a href="">Galerija</a><br>
-        <a href="" title="Slovakian"><img src="https://github.com/greeenCloud/fenix/blob/main/slovakia.jpg?raw=true" class="w3-circle"></a>
-        <a href="" title="Russian"><img src="https://github.com/greeenCloud/fenix/blob/main/russian.jpg?raw=true" class="w3-circle"></a>
-        <a href="" title="English"><img src="https://github.com/greeenCloud/fenix/blob/main/english.jpg?raw=true" class="w3-circle"></a>
+      <a style="background-color: black"><img src="https://github.com/greeenCloud/fenix/blob/main/logo.png?raw=true" width="330"></a>
+        <a href="index.html">Početna</a>
+        <a href="oNama.html">O nama</a>
+        <a href="usluge.html">Usluge</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="" class="active">Galerija</a><br>
+         <a href="" title="English"><img src="https://github.com/greeenCloud/fenix/blob/main/english.jpg?raw=true" class="w3-circle"></a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a></div>
     <div class="w3-row w3-center w3-content"><br><br>
         <div class="w3-half">
@@ -101,510 +241,681 @@ img {
         </div>
           <h3>Pogledajte prezentaciju ustanove Fenix u Padini</h3>
        </div><br><br>
-       <div class="w3-panel w3-brown w3-leftbar w3-center">
-        <h2>GALERIJA FOTOGRAFIJA</h2>
+       <div class="w3-panel w3-brown w3-center">
+        <h2>GALERIJA FOTOGRAFIJA </h2>
+      </div>
+      <div class="w3-content">
+        <br>
+        <br>
+        <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kolektiv Doma sa korisnicima</h3><br>
+      <div class="row">
+        <div class="column">
+          <img src="01-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="02-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="03-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="04-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+        </div>
       </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
-  <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kolektiv Doma sa korisnicima</h3><br>
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-korisnici.jpg" style="width:100%">
+      <div class="row">
+        <div class="column">
+          <img src="05-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="06-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="07-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="08-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img src="09-korisnici.jpg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+        </div>
+     
+      </div>
+      </div>
+
+      <div class="w3-content">
+        <br>
+        <br>
+        <h3 class="w3-border-top w3-border-bottom w3-border-brown">Dvorište Doma</h3><br>
+      <div class="row">
+        <div class="column">
+          <img src="DSC_2222.jpg" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2224.jpg" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2226.jpg" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2228.jpg" style="width:100%" onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img src="DSC_2237.jpg" style="width:100%" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2245.jpg" style="width:100%" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2247.jpg" style="width:100%" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2251.jpg" style="width:100%" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img src="06-dvoriste.jpg" style="width:100%" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2267.jpg" style="width:100%" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2280.jpg" style="width:100%" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="DSC_2274.jpg" style="width:100%" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+        </div>
+      </div>
+      
+      <div class="row">
+      <div class="column">
+          <img src="02-dvoriste.jpg" style="width:100%" onclick="openModal();currentSlide(22)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="03-dvoriste.jpg" style="width:100%" onclick="openModal();currentSlide(23)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="04-dvoriste.jpg" style="width:100%" onclick="openModal();currentSlide(24)" class="hover-shadow cursor">
+        </div>
+        <div class="column">
+          <img src="05-dvoriste.jpg" style="width:100%" onclick="openModal();currentSlide(25)" class="hover-shadow cursor">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img src="01-dvoriste.jpg" style="width:80%" onclick="openModal();currentSlide(26)" class="hover-shadow cursor">
+        </div> 
+        <div class="column">
+          <img src="DSC_2260.jpg" style="width:80%" onclick="openModal();currentSlide(27)" class="hover-shadow cursor">
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="02-korisnici.jpg" style="width:100%">
+    <div class="w3-content">
+      <br>
+      <br>
+      <h3 class="w3-border-top w3-border-bottom w3-border-brown">Apartman</h3><br>
+    <div class="row">
+      <div class="column">
+        <img src="01-apartman-ulaz.jpg" style="width:80%" onclick="openModal();currentSlide(28)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="02-apartman-pretsoblje.jpg" style="width:80%" onclick="openModal();currentSlide(29)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="05-apartman-dnevni-boravak.jpg" style="width:80%" onclick="openModal();currentSlide(30)" class="hover-shadow cursor">
+      </div>
     </div>
-  </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="03-korisnici.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="04-korisnici.jpg" style="width:100%">
-    </div>
-  </div> 
-</div>
-
-<div class="w3-row-padding w3-margin-top w3-content">
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="05-korisnici.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="06-korisnici.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="07-korisnici.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="08-korisnici.jpg" style="width:100%">
-    </div>
-  </div>
-</div>
-
-<div class="w3-row-padding w3-margin-top w3-content">
-   <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="09-korisnici.jpg" style="width:100%">
+    <div class="row">
+      <div class="column">
+        <img src="03-apartman-dn-boravak-trpezarija.jpg" style="width:100%" onclick="openModal();currentSlide(31)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="04-apartman-cajna-kuhinja.jpg" style="width:100%" onclick="openModal();currentSlide(32)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="06-apartman-spavaca-soba.jpg" style="width:100%" onclick="openModal();currentSlide(33)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="07-apartman-spavaca-soba-2.jpg" style="width:100%" onclick="openModal();currentSlide(34)" class="hover-shadow cursor">
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <div class="w3-row-padding w3-margin-top w3-content">
+
+  <div class="w3-content">
     <br>
-    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Dvorište Doma</h3><br>
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2222.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2224.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2226.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="DSC_2228.jpg" style="width:100%">
-      </div>
-    </div>
-
-  </div>
-  <div class="w3-row-padding w3-margin-top w3-content">
     <br>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2237.jpg" style="width:100%">
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Jednokrevetne sobe</h3><br>
+    <div class="row">
+      <div class="column">
+        <img src="01-jednokrevetna-soba.jpg" style="width:100%" onclick="openModal();currentSlide(35)" class="hover-shadow cursor">
       </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2245.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2247.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="DSC_2251.jpg" style="width:100%">
-      </div>
-    </div>
-
-  </div>
-  <div class="w3-row-padding w3-margin-top w3-content">
-    <br>
-   <br>
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2260.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2267.jpg" style="width:100%; margin-top: 15%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="DSC_2280.jpg" style="width:100%; margin-top: 15%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="DSC_2274.jpg" style="width:100%; margin-top: 15%">
-      </div>
-    </div>
-
-  </div>
-
-  
-<div class="w3-row-padding w3-margin-top w3-content">
-    <br>
-   <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="02-dvoriste.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="03-dvoriste.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="04-dvoriste.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="05-dvoriste.jpg" style="width:100%">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="w3-row-padding w3-margin-top w3-content">
-    <br>
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="01-dvoriste.jpg" style="width:100%">
-      </div>
-    </div>
-
-   <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="06-dvoriste.jpg" style="width:100%; margin-top: 15%">
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <div class="w3-row-padding w3-margin-top w3-content">
-    <br>
-    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Apartman</h3><br>
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="01-apartman-ulaz.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="02-apartman-pretsoblje.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="05-apartman-dnevni-boravak.jpg" style="width:100%">
+      <div class="column">
+        <img src="02-jednokrevetna-soba2.jpg" style="width:100%" onclick="openModal();currentSlide(36)" class="hover-shadow cursor">
       </div>
     </div>
   </div>
 
-  
-  <div class="w3-row-padding w3-margin-top w3-content">
+  <div class="w3-content">
     <br>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="03-apartman-dn-boravak-trpezarija.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="04-apartman-cajna-kuhinja.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="06-apartman-spavaca-soba.jpg" style="width:100%">
-      </div>
-    </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="07-apartman-spavaca-soba-2.jpg" style="width:100%">
-      </div>
-    </div>
-  
-  <div class="w3-row-padding w3-margin-top w3-content">
-    <br>
-    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Jednokrevetne sobe</h3>
-    <br>
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="01-jednokrevetna-soba.jpg" style="width:100%">
-      </div>
-    </div>
-  
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="02-jednokrevetna-soba2.jpg" style="width:100%">
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <div class="w3-row-padding w3-margin-top w3-content">
     <br>
     <h3 class="w3-border-top w3-border-bottom w3-border-brown">Dvokrevetne sobe</h3><br>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="02-dvokrevetna-soba-potkrovlje.jpg" style="width:100%">
-      </div>
+  <div class="row">
+    <div class="column">
+      <img src="08-dvokrevetna-soba-stacionar2.jpg" style="width:100%" onclick="openModal();currentSlide(37)" class="hover-shadow cursor">
     </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="08-dvokrevetna-soba-stacionar2.jpg" style="width:100%">
-      </div>
+    <div class="column">
+      <img src="03-dvokrevetna-potkrovlje.jpg" style="width:100%" onclick="openModal();currentSlide(38)" class="hover-shadow cursor">
     </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed" src="03-dvokrevetna-potkrovlje.jpg" style="width:100%">
-      </div>
+    <div class="column">
+      <img src="04-dvokrevetna-potkrovlje.jpg" style="width:100%" onclick="openModal();currentSlide(39)" class="hover-shadow cursor">
     </div>
-
-    <div class="w3-quarter">
-      <div class="w3-card-4">
-        <img class="materialbox materialboxed"src="04-dvokrevetna-potkrovlje.jpg?" style="width:100%">
-      </div>
-    </div>
-</div>
-
-<div class="w3-row-padding w3-margin-top w3-content">
-  <br>
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="05-dvokrevetna-soba2.jpg" style="width:100%">
+    <div class="column">
+      <img src="01-dvokrevetna-soba.jpg" style="width:100%" onclick="openModal();currentSlide(40)" class="hover-shadow cursor">
     </div>
   </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="06-dvokrevetna-soba2a.jpg" style="width:100%">
+  <div class="row">
+    <div class="column">
+      <img src="05-dvokrevetna-soba2.jpg" style="width:100%" onclick="openModal();currentSlide(41)" class="hover-shadow cursor">
     </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="07-dvokrevetna-soba-stacionar.jpg" style="width:100%">
+    <div class="column">
+      <img src="06-dvokrevetna-soba2a.jpg" style="width:100%" onclick="openModal();currentSlide(42)" class="hover-shadow cursor">
     </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-dvokrevetna-soba.jpg" style="width:100%">
+    <div class="column">
+      <img src="07-dvokrevetna-soba-stacionar.jpg" style="width:100%" onclick="openModal();currentSlide(43)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="02-dvokrevetna-soba-potkrovlje.jpg" style="width:100%" onclick="openModal();currentSlide(44)" class="hover-shadow cursor">
     </div>
   </div>
 </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
+<div class="w3-content">
   <br>
   <br>
   <h3 class="w3-border-top w3-border-bottom w3-border-brown">Trokrevetne sobe</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-trokrevetna-soba.jpg" style="width:100%">
+  <div class="row">
+    <div class="column">
+      <img src="01-trokrevetna-soba.jpg" style="width:100%" onclick="openModal();currentSlide(45)" class="hover-shadow cursor">
     </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-trokrevetna-soba2.jpg" style="width:100%">
-    </div>
-  </div>
-
-<div class="w3-row-padding w3-margin-top w3-content">
-  <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kupatila u sobama</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-kupatilo.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-kupatilo.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="03-kupatilo-rehabilitacija.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="04-kupatilo-rehabilitacija.jpg" style="width:100%; margin-top: 15%">
+    <div class="column">
+      <img src="02-trokrevetna-soba2.jpg" style="width:100%" onclick="openModal();currentSlide(46)" class="hover-shadow cursor">
     </div>
   </div>
 </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
+<div class="w3-content">
   <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Trpezarija</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-trpezarija.jpg" style="width:100%">
+    <br>
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kupatila u sobama</h3><br>
+  <div class="row">
+    <div class="column">
+      <img src="01-kupatilo.jpg" style="width:100%" onclick="openModal();currentSlide(47)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="02-kupatilo.jpg" style="width:80%" onclick="openModal();currentSlide(48)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="03-kupatilo-rehabilitacija.jpg" style="width:100%" onclick="openModal();currentSlide(49)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="04-kupatilo-rehabilitacija.jpg" style="width:100%" onclick="openModal();currentSlide(50)" class="hover-shadow cursor">
     </div>
   </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-trpezarija.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="03-trpezarija.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="04-trpezarija.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
 </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
+<div class="w3-content">
   <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Dnevni boravak</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-dnevni-boravak.jpg" style="width:100%">
+    <br>
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Trpezarija</h3><br>
+  <div class="row">
+    <div class="column">
+      <img src="01-trpezarija.jpg" style="width:80%" onclick="openModal();currentSlide(51)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="02-trpezarija.jpg" style="width:100%" onclick="openModal();currentSlide(52)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="03-trpezarija.jpg" style="width:100%" onclick="openModal();currentSlide(53)" class="hover-shadow cursor">
+    </div>
+    <div class="column">
+      <img src="04-trpezarija.jpg" style="width:100%" onclick="openModal();currentSlide(54)" class="hover-shadow cursor">
     </div>
   </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-dnevni-boravak.jpg" style="width:100%">
-    </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="03-dnevni-boravak.jpg" style="width:100%">
-    </div>
-  </div>
 </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
+<div class="w3-content">
   <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kuhinja</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-kuhinja.jpg" style="width:100%; margin-top: 15%">
+    <br>
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Dnevni boravak</h3><br>
+  <div class="row">
+    <div class="column">
+      <img src="01-dnevni-boravak.jpg" style="width:100%" onclick="openModal();currentSlide(55)" class="hover-shadow cursor">
     </div>
-  </div>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-kuhinja-lift-za-hranu.jpg" style="width:100%">
+    <div class="column">
+      <img src="02-dnevni-boravak.jpg" style="width:100%" onclick="openModal();currentSlide(56)" class="hover-shadow cursor">
     </div>
-  </div>
+    <div class="column">
+      <img src="03-dnevni-boravak.jpg" style="width:100%" onclick="openModal();currentSlide(57)" class="hover-shadow cursor">
+    </div>
+   </div>
 </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
-  <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Hodnici i lift</h3><br>
-
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-hodnik-prizemlje.jpg" style="width:100%">
+<div class="w3-content">
+    <br>
+    <br>
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Kuhinja</h3><br>
+    <div class="row">
+      <div class="column">
+        <img src="01-kuhinja.jpg" style="width:100%" onclick="openModal();currentSlide(58)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="02-kuhinja-lift-za-hranu.jpg" style="width:80%" onclick="openModal();currentSlide(59)" class="hover-shadow cursor">
+      </div>
     </div>
   </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="02-portirnica.jpg" style="width:100%">
+  <div class="w3-content">
+    <br>
+      <br>
+      <h3 class="w3-border-top w3-border-bottom w3-border-brown">Hodnici i lift</h3><br>
+    <div class="row">
+      <div class="column">
+        <img src="01-hodnik-prizemlje.jpg" style="width:80%" onclick="openModal();currentSlide(60)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="02-portirnica.jpg" style="width:80%" onclick="openModal();currentSlide(61)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="03-lift.jpg" style="width:80%" onclick="openModal();currentSlide(62)" class="hover-shadow cursor">
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="column">
+        <img src="04-hodnik-sprat.jpg" style="width:100%" onclick="openModal();currentSlide(63)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="05hodnik-potkrovlje.jpg" style="width:100%" onclick="openModal();currentSlide(64)" class="hover-shadow cursor">
+      </div>
+      <div class="column">
+        <img src="06-hodnik-potkrovlje2.jpg" style="width:100%" onclick="openModal();currentSlide(65)" class="hover-shadow cursor">
+      </div>
+     </div>
+  </div>
+
+  <div class="w3-content">
+    <br>
+    <br>
+    <h3 class="w3-border-top w3-border-bottom w3-border-brown">Vešeraj</h3><br>
+    <div class="row">
+      <div class="column">
+        <img src="01-veseraj.jpg" style="width:100%" onclick="openModal();currentSlide(66)" class="hover-shadow cursor">
+      </div>
     </div>
   </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="03-lift.jpg" style="width:100%">
-    </div>
-  </div>
+  <br><br><br><br><br>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="04-hodnik-sprat.jpg" style="width:100%; margin-top: 15%">
-    </div>
-  </div>
-</div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
+    <!--MODAL-->
+      <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+      
+          <div class="mySlides">
+            <div class="numbertext">1 / 66</div>
+            <img src="01-korisnici.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides">
+            <div class="numbertext">2 / 66</div>
+            <img src="02-korisnici.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides">
+            <div class="numbertext">3 / 66</div>
+            <img src="03-korisnici.jpg" style="width:100%">
+          </div>
+          
+          <div class="mySlides">
+            <div class="numbertext">4 / 66</div>
+            <img src="04-korisnici.jpg" style="width:100%">
+          </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="05hodnik-potkrovlje.jpg" style="width:100%">
-    </div>
-  </div>
+          <div class="mySlides">
+            <div class="numbertext">5 / 66</div>
+            <img src="05-korisnici.jpg" style="width:100%">
+          </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed"src="06-hodnik-potkrovlje2.jpg" style="width:100%">
-    </div>
-  </div>
-</div>
+          <div class="mySlides">
+            <div class="numbertext">6 / 66</div>
+            <img src="06-korisnici.jpg" style="width:100%">
+          </div>
 
-<div class="w3-row-padding w3-margin-top w3-content">
-  <br>
-  <br>
-  <h3 class="w3-border-top w3-border-bottom w3-border-brown">Vešeraj</h3><br>
+          <div class="mySlides">
+            <div class="numbertext">7 / 66</div>
+            <img src="07-korisnici.jpg" style="width:100%">
+          </div>
 
-  <div class="w3-quarter">
-    <div class="w3-card-4">
-      <img class="materialbox materialboxed" src="01-veseraj.jpg" style="width:100%">
-    </div>
-  </div>
-</div>
+          <div class="mySlides">
+            <div class="numbertext">8 / 66</div>
+            <img src="08-korisnici.jpg" style="width:100%">
+          </div>
 
-<br><br><br><br><br>
+          <div class="mySlides">
+            <div class="numbertext">9 / 66</div>
+            <img src="09-korisnici.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">10/ 66</div>
+            <img src="DSC_2222.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides">
+            <div class="numbertext">11 / 66</div>
+            <img src="DSC_2224.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides">
+            <div class="numbertext">12/ 66</div>
+            <img src="DSC_2226.jpg" style="width:100%">
+          </div>
+          
+          <div class="mySlides">
+            <div class="numbertext">13 / 66</div>
+            <img src="DSC_2228.jpg" style="width:100%">
+          </div>
   
+          <div class="mySlides">
+            <div class="numbertext">14 / 66</div>
+            <img src="DSC_2237.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">15 / 66</div>
+            <img src="DSC_2245.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">16 / 66</div>
+            <img src="DSC_2247.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">17 / 66</div>
+            <img src="DSC_2251.jpg" style="width:100%">
+          </div>
 
+          <div class="mySlides">
+            <div class="numbertext">18 / 66</div>
+            <img src="06-dvoriste.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">19 / 66</div>
+            <img src="DSC_2267.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides">
+            <div class="numbertext">20 / 66</div>
+            <img src="DSC_2280.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">21 / 66</div>
+            <img src="DSC_2274.jpg" style="width:100%">
+          </div>
+          
+          <div class="mySlides">
+            <div class="numbertext">22 / 66</div>
+            <img src="02-dvoriste.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">23 / 66</div>
+            <img src="03-dvoriste.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">24 / 66</div>
+            <img src="04-dvoriste.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">25 / 66</div>
+            <img src="05-dvoriste.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">26 / 66</div>
+            <img src="01-dvoriste.jpg" style="width:50%">
+          </div>
+  
+          <div class="mySlides">
+            <div class="numbertext">27 / 66</div>
+            <img src="DSC_2260.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">28 / 66</div>
+            <img src="01-apartman-ulaz.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">29 / 66</div>
+            <img src="02-apartman-pretsoblje.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">30 / 66</div>
+            <img src="05-apartman-dnevni-boravak.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">31 / 66</div>
+            <img src="03-apartman-dn-boravak-trpezarija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">32 / 66</div>
+            <img src="04-apartman-cajna-kuhinja.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">33 / 66</div>
+            <img src="06-apartman-spavaca-soba.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">34 / 66</div>
+            <img src="07-apartman-spavaca-soba-2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">35 / 66</div>
+            <img src="01-jednokrevetna-soba.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">36 / 66</div>
+            <img src="02-jednokrevetna-soba2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">37 / 66</div>
+            <img src="08-dvokrevetna-soba-stacionar2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">38 / 66</div>
+            <img src="03-dvokrevetna-potkrovlje.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">39 / 66</div>
+            <img src="04-dvokrevetna-potkrovlje.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">40 / 66</div>
+            <img src="02-dvokrevetna-soba-potkrovlje.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">41 / 66</div>
+            <img src="05-dvokrevetna-soba2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">42 / 66</div>
+            <img src="06-dvokrevetna-soba2a.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">43 / 66</div>
+            <img src="07-dvokrevetna-soba-stacionar.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">44 / 66</div>
+            <img src="01-dvokrevetna-soba.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">45 / 66</div>
+            <img src="01-trokrevetna-soba.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">46 / 66</div>
+            <img src="02-trokrevetna-soba2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">47 / 66</div>
+            <img src="01-kupatilo.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">48 / 66</div>
+            <img src="02-kupatilo.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">49 / 66</div>
+            <img src="03-kupatilo-rehabilitacija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">50 / 66</div>
+            <img src="04-kupatilo-rehabilitacija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">51 / 66</div>
+            <img src="01-trpezarija.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">52 / 66</div>
+            <img src="02-trpezarija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">53 / 66</div>
+            <img src="03-trpezarija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">54 / 66</div>
+            <img src="04-trpezarija.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">55 / 66</div>
+            <img src="01-dnevni-boravak.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">56 / 66</div>
+            <img src="02-dnevni-boravak.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">57 / 66</div>
+            <img src="03-dnevni-boravak.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">58 / 66</div>
+            <img src="01-kuhinja.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">59 / 66</div>
+            <img src="02-kuhinja-lift-za-hranu.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">60 / 66</div>
+            <img src="01-hodnik-prizemlje.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">61 / 66</div>
+            <img src="02-portirnica.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">62 / 66</div>
+            <img src="03-lift.jpg" style="width:50%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">63 / 66</div>
+            <img src="04-hodnik-sprat.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">64 / 66</div>
+            <img src="05hodnik-potkrovlje.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">65 / 66</div>
+            <img src="06-hodnik-potkrovlje2.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">66 / 66</div>
+            <img src="01-veseraj.jpg" style="width:100%">
+          </div>
+
+
+
+
+          
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+      
 <script>
     function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -619,6 +930,44 @@ img {
 var elems = document.querySelectorAll('.materialboxed');
 var instances = M.Materialbox.init(elems, 200);
 });
+
+/*LIGHTBOX*/
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 
 </script>
 </body>
